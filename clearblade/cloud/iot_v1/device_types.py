@@ -120,7 +120,7 @@ class Device():
             last_config_send_time = lastConfigSendTimeFromJson
             last_error_time = lastErrorTimeFromJson
 
-        return Device(
+        theDevice = Device(
             id=get_value(json, 'id'),
             num_id=get_value(json, 'numId'),
             credentials=convertCredentialsFormatsFromString(get_value(json, 'credentials')),
@@ -138,6 +138,13 @@ class Device():
             meta_data=get_value(json, 'metadata'),
             gateway_config=get_value(json, 'gatewayConfig')
         )
+
+        #Since _name is a private attribute, we have to populate it like this
+        #because we don't allow "name" to be passed in the constructor
+
+        theDevice._name=get_value(json, 'name')
+        
+        return theDevice
 
     @property
     def id(self):
