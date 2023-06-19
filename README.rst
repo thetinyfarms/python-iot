@@ -1,49 +1,23 @@
-.. Copyright 2023 ClearBlade Inc.
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-        http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-    Copyright 2022 Google LLC
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-        http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
- 
-Python Client for ClearBlade Internet of Things (IoT) Core API
+Python Client for ClearBlade IoT Core API
 ================================================================
 
-Quick Start
+Quick start
 -----------
 
-In order to use this library, you first need to go through the following steps:
+To use this library, you first need to go through the following steps:
 
 1. Install pip package - ```pip install clearblade-cloud-iot```
 
-
-2. Set an environment variable **CLEARBLADE_CONFIGURATION** which should point to your clearblade service account json file.
+2. Set an environment variable **CLEARBLADE_CONFIGURATION**, pointing to your ClearBlade service account JSON file.
 
 3. Optionally set an environment variable **BINARYDATA_AND_TIME_GOOGLE_FORMAT** to True. Look at **Note about types of times and binaryData** below for details. 
 
 Installation
 ~~~~~~~~~~~~
 
-Install this library in a `virtualenv`_ using pip. `virtualenv`_ is a tool to
-create isolated Python environments. The basic problem it addresses is one of
-dependencies and versions, and indirectly permissions.
+Install this library in a `virtualenv`_ using pip. `virtualenv`_ is a tool to create isolated Python environments. It addresses dependencies and versions and, indirectly, permissions.
 
-With `virtualenv`_, it's possible to install this library without needing system
-install permissions, and without clashing with the installed system
-dependencies.
+With `virtualenv`_, it's possible to install this library without system install permissions and clashing with the installed system dependencies.
 
 .. _`virtualenv`: https://virtualenv.pypa.io/en/latest/
 
@@ -51,10 +25,10 @@ dependencies.
 Code samples and snippets
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Code samples and snippets live in the `samples/clearblade` folder.
+Code samples and snippets live in the samples/clearblade folder.
 
 
-Supported Python Versions
+Supported Python versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Our client libraries are compatible with all current `active`_ and `maintenance`_ versions of
 Python.
@@ -64,12 +38,11 @@ Python >= 3.7
 .. _active: https://devguide.python.org/devcycle/#in-development-main-branch
 .. _maintenance: https://devguide.python.org/devcycle/#maintenance-branches
 
-Unsupported Python Versions
+Unsupported Python versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Python <= 3.6
 
-If you are using an `end-of-life`_
-version of Python, we recommend that you update as soon as possible to an actively supported version.
+If you are using an `end-of-life`_ version of Python, we recommend you update it to an actively supported version as soon as possible.
 
 .. _end-of-life: https://devguide.python.org/devcycle/#end-of-life-branches
 
@@ -92,19 +65,19 @@ Windows
     virtualenv <your-env>
     <your-env>\Scripts\activate
 
-Next Steps
+Next steps
 ~~~~~~~~~~
 
-- clone the github repository.
+- Clone the GitHub repository.
 
-- and execute the setup.py file like , python setup.py install.
+- Execute the setup.py file like Python setup.py install.
 
-- mostly if you change you imports from from google.cloud to clearblade.cloud everything else should work.
+- Everything else should work if you change your imports from google.cloud to clearblade.cloud.
 
 Note about types of times and binaryData
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- By default the following parameters are returned as the shown types:
+- By default, the following parameters are returned as the shown types:
 
 1. All time parameters (e.g. **cloudUpdateTime**, **deviceAckTime**, **updateTime**): **RFC3339** strings (e.g. "2023-01-12T23:38:07.732Z")
 2. **CONFIG binaryData**: **base64-encoded string**
@@ -116,7 +89,7 @@ Note about types of times and binaryData
 1. All times: **DatetimeWithNanoseconds** (defined in the **proto.datetime_helpers** module)
 2. All **binaryData** (CONFIG, STATE etc.): **BYTE ARRAYS**
 
-- If this environment variable is not set, or is set to any unexpeced values, then the default types listed previously are used.
+- If this environment variable is not set, or is set to any unexpected values, then the default types listed previously are used.
 
 - By default calls to some SDK functions cause a REST request to be sent to acquire the Registry API Keys found on the IoTCore UI Registry Details page. Those keys are cached for subsequent operations in order to improve performance. However these caches do not persist if the application is stopped and restarted as would be the case with typical serverless functions (e.g. Google Cloud Functions, AWS Lambda etc.). In order to improve the performance of those functions, the REST call can be prevented by passing the API Keys as environment variables:
 1. **REGISTRY_URL**: **string**
@@ -124,13 +97,14 @@ Note about types of times and binaryData
 3. **REGISTRY_TOKEN**: **string**
 
 Note about running from source instead of PyPi (pip) module:
+Note about running from the source instead of the PyPi (pip) module:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- To temporarily use the source code in this repo. instead of the installed PyPi (pip) module do the following:
+- To temporarily use the source code in this repo instead of the installed PyPi (pip) module, do the following:
 
 1. Clone this repo.
-2. Checkout the desired branch using **git checkout <branch>**.
+2. Check out the desired branch using **git checkout <branch>**.
 3. In your code find where **clearblade** or **clearblade.cloud** is being imported.
-4. Precede that line with **import sys** and **sys.path.insert(0, <path_to_python-iot>)**. The path must end with "python-iot". So for example:
+4. Precede that line with **import sys** and **sys.path.insert(0, <path_to_python-iot>)**. The path must end with python-iot. For example:
 
 .. code-block:: console
 
