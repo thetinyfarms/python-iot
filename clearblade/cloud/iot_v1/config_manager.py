@@ -61,15 +61,19 @@ class ClearBladeConfigManager:
         if self._admin_config:
             return
 
-        service_account_file_path = os.environ.get("CLEARBLADE_CONFIGURATION")
+        service_account_credentials = os.environ.get("CLEARBLADE_CONFIGURATION")
         service_account_data = None
         
-        if service_account_file_path is None:
+        if service_account_credentials is None:
             raise Exception('CLEARBLADE_CONFIGURATION environment variable is not set')
         
-        #parse the file and get all te required details.
-        with open(service_account_file_path, mode='r') as service_account_file:
-            service_account_data = json.load(service_account_file)
+        if os.path.isfile(service_account_credentials):
+            #parse the file and get all te required details.
+            with open(service_account_credentials, mode='r') as service_account_file:
+                service_account_data = json.load(service_account_file)
+        else:
+            #parse string as json config
+            service_account_data = json.loads(service_account_credentials)
 
         if service_account_data is None:
             raise Exception('ClearBlade Service account file is empty')
