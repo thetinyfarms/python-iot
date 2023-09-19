@@ -94,7 +94,7 @@ Note about types of times and binaryData
 Note about performance:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- By default calls to some SDK functions cause a REST request to be sent to acquire the Registry API Keys found on the IoTCore UI Registry Details page. Those keys are cached for subsequent operations in order to improve performance. However these caches do not persist if the application is stopped and restarted as would be the case with typical serverless functions (e.g. Google Cloud Functions, AWS Lambda etc.). In order to improve the performance of those functions, the REST call can be prevented by passing the API Keys as environment variables:
+- By default, calls to some SDK functions cause a REST request to be sent to acquire the registry API keys found on the IoTCore UI Registry Details page. Those keys are cached for subsequent operations to improve performance. However, these caches do not persist if the application is stopped and restarted, as would be the case with typical serverless functions (e.g., Google Cloud Functions, AWS Lambda, etc.). To improve those functions' performance, the REST call can be prevented by passing the API keys as environment variables:
 
 1. **REGISTRY_URL**: **string**
 2. **REGISTRY_SYSKEY**: **string**
