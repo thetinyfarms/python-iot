@@ -58,7 +58,7 @@ setuptools.setup(
     description=description,
     long_description=readme,
     author="Clearblade",
-    author_email="googleapis-packages@oogle.com",
+    author_email="info@clearblade.com",
     license="Apache 2.0",
     url="https://github.com/clearblade/python-iot",
     classifiers=[
