@@ -3,6 +3,7 @@ Python Client for ClearBlade IoT Core API
 
 Quick start
 -----------
+**Note: This SDK is for use with ClearBlade IoT Core and NOT ClearBlade IoT Enterprise. The Python SDK for ClearBlade IoT Core can be found here: https://github.com/ClearBlade/python-iot.**
 
 To use this library, you first need to go through the following steps:
 
