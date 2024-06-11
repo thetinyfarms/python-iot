@@ -3,14 +3,17 @@ Python Client for ClearBlade IoT Core API
 
 Quick start
 -----------
+**Note: This SDK is for use with ClearBlade IoT Core and NOT ClearBlade IoT Enterprise. The Python SDK for ClearBlade IoT Enterprise can be found here: https://github.com/ClearBlade/ClearBlade-Python-SDK/.**
 
 To use this library, you first need to go through the following steps:
 
 1. Install pip package - ```pip install clearblade-cloud-iot```
 
-2. Set an environment variable **CLEARBLADE_CONFIGURATION**, pointing to your ClearBlade service account JSON file.
+2. Set an environment variable **CLEARBLADE_CONFIGURATION**, pointing to your ClearBlade service account JSON file. Look `here`_ for how to create a service account and download a credentials JSON file.
 
-3. Optionally set an environment variable **BINARYDATA_AND_TIME_GOOGLE_FORMAT** to True. Look at **Note about types of times and binaryData** below for details. 
+3. Optionally set an environment variable **BINARYDATA_AND_TIME_GOOGLE_FORMAT** to True. Look at **Note about types of times and binaryData** below for details.
+
+.. _`here`: https://clearblade.atlassian.net/wiki/spaces/IC/pages/2240675843/Add+service+accounts+to+a+project
 
 Installation
 ~~~~~~~~~~~~
@@ -94,7 +97,7 @@ Note about types of times and binaryData
 Note about performance:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- By default calls to some SDK functions cause a REST request to be sent to acquire the Registry API Keys found on the IoTCore UI Registry Details page. Those keys are cached for subsequent operations in order to improve performance. However these caches do not persist if the application is stopped and restarted as would be the case with typical serverless functions (e.g. Google Cloud Functions, AWS Lambda etc.). In order to improve the performance of those functions, the REST call can be prevented by passing the API Keys as environment variables:
+- By default, calls to some SDK functions cause a REST request to be sent to acquire the registry API keys found on the IoTCore UI Registry Details page. Those keys are cached for subsequent operations to improve performance. However, these caches do not persist if the application is stopped and restarted, as would be the case with typical serverless functions (e.g., Google Cloud Functions, AWS Lambda, etc.). To improve those functions' performance, the REST call can be prevented by passing the API keys as environment variables:
 
 1. **REGISTRY_URL**: **string**
 2. **REGISTRY_SYSKEY**: **string**

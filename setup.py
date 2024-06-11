@@ -32,7 +32,7 @@ import setuptools
 
 name = "clearblade-cloud-iot"
 description = "Cloud IoT API client library"
-version = "2.0.4"
+version = "2.0.5"
 release_status = "Development Status :: 5 - Production/Stable"
 dependencies = ["httpx", "proto-plus"]
 
@@ -58,7 +58,7 @@ setuptools.setup(
     description=description,
     long_description=readme,
     author="Clearblade",
-    author_email="googleapis-packages@oogle.com",
+    author_email="info@clearblade.com",
     license="Apache 2.0",
     url="https://github.com/clearblade/python-iot",
     classifiers=[
